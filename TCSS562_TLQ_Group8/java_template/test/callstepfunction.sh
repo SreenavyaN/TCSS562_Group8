@@ -1,6 +1,6 @@
 #!/bin/bash
 calc(){ awk "BEGIN { print "$*" }"; }
-for i in {1..100};
+for i in {1..2};
 do
   start=`date +%s` 
   json={"\"bucketname\"":"\"termproject-testing\"","\"filename\"":"\"testdataset.csv\""}
@@ -20,14 +20,14 @@ do
   aws stepfunctions describe-execution --execution-arn $exearn | jq -r ".output" | jq
   end=`date +%s`
   runtime=$((end-start))
-  echo $runtime >> step_analysis_65000r2_100e.txt
+  echo $runtime >> step_analysis_freeze.txt
   sum=`(expr $sum + $runtime)`
   echo "Completed Iteration $i"
 done
-echo "Average for 100 runs : " >> step_analysis_65000r2_100e.txt
+echo "Average for 100 runs : " >> step_analysis_freeze.txt
 average=`calc $sum/100`
-echo $average >> step_analysis_65000r2_100e.txt
-echo "Throughput for 65000 rows : " >> step_analysis_65000r2_100e.txt
-throughput=`calc 65000/$average`
-echo $throughput >> step_analysis_65000r2_100e.txt
+echo $average >> step_analysis_freeze.txt
+echo "Throughput for 100000 rows : " >> step_analysis_freeze.txt
+throughput=`calc 100000/$average`
+echo $throughput >> step_analysis_freeze.txt
 

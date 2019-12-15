@@ -1,0 +1,25 @@
+115
+21
+12
+Average for 100 runs : 
+0.33
+Throughput for 100000 rows : 
+303030
+14
+14
+Average for 100 runs : 
+0.28
+Throughput for 100000 rows : 
+357143
+237
+16
+Average for 100 runs : 
+2.53
+Throughput for 100000 rows : 
+39525.7
+16
+17
+Average for 100 runs : 
+0.33
+Throughput for 100000 rows : 
+303030
